@@ -53,11 +53,20 @@ class CreateTodo extends Component {
     console.log(`Todo Priority: ${this.state.todo_priority}`);
     console.log(`Todo Startdate: ${this.state.todo_startdate}`);
     console.log(`Todo Completeddate: ${this.state.todo_completeddate}`);
+
+    this.setState({
+      todo_description: '',
+      todo_responsible: '',
+      todo_priority: '',
+      todo_startdate: '',
+      todo_completeddate: '',
+      todo_completed: false,
+    });
   };
 
   render() {
     return (
-      <div>
+      <div className='container'>
         <div style={{ marginTop: 10 }}>
           <h3>Create New Todo</h3>
           <form onSubmit={this.onSubmit}>
