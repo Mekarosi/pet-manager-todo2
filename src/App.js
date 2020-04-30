@@ -8,6 +8,11 @@ function App() {
     <Router>
       <div className='App'>
         <h1>Pet Manager's Todo</h1>
+
+        <Route path='/' exact component={TodoList} />
+        <Route path='/edit/:id' component={EditTodo} />
+        <Route path='/create' component={CreateTodo} />
+        <Route path='/delete/:id' component={DeleteTodo} />
       </div>
     </Router>
   );
