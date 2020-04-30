@@ -11,6 +11,35 @@ class DeleteTodo extends Component {
       todo_completed: false,
     };
   }
+
+  onChangeTodoDescription = (e) => {
+    this.setState({
+      todo_description: e.target.value,
+    });
+  };
+
+  onChangeTodoResponsible = (e) => {
+    this.setState({
+      todo_responsible: e.target.value,
+    });
+  };
+
+  onChangeTodoPriority = (e) => {
+    this.setState({
+      todo_priority: e.target.value,
+    });
+  };
+
+  onChangeTodoCompleted = (e) => {
+    this.setState({
+      todo_completed: !this.state.todo_completed,
+    });
+  };
+
+  onSubmit = (e) => {
+    e.preventDefault();
+  };
+
   render() {
     return (
       <div className='container'>
