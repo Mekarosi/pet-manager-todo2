@@ -55,7 +55,7 @@ class EditTodo extends Component {
   };
   render() {
     return (
-      <div>
+      <div className='container'>
         <h3 align='center'>Edit Todo</h3>
         <form onSubmit={this.onSubmit}>
           <div className='form-group'>
