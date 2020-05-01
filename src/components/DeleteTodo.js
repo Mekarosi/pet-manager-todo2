@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class DeleteTodo extends Component {
   constructor(props) {
@@ -10,6 +11,22 @@ class DeleteTodo extends Component {
       todo_priority: '',
       todo_completed: false,
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:4000/api/todos/' + this.props.match.params.id)
+      .then((response) => {
+        this.setState({
+          todo_description: response.data.todo_description,
+          todo_responsible: response.data.todo_responsible,
+          todo_priority: response.data.todo_priority,
+          todo_completed: response.data.todo_completed,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   onChangeTodoDescription = (e) => {
@@ -38,6 +55,22 @@ class DeleteTodo extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+
+    const obj = {
+      todo_description: this.state.todo_description,
+      todo_responsible: this.state.todo_responsible,
+      todo_priority: this.state.todo_priority,
+      todo_completed: this.state.todo_completed,
+    };
+    console.log(obj);
+    axios
+      .delete(
+        'http://localhost:4000/api/todos/delete/' + this.props.match.params.id,
+        obj
+      )
+      .then((res) => console.log(res.data));
+
+    this.props.history.push('/');
   };
 
   render() {

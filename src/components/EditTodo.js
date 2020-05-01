@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios';
 
 class EditTodo extends Component {
   constructor(props) {
@@ -12,6 +13,24 @@ class EditTodo extends Component {
       todo_completeddate: '',
       todo_completed: false,
     };
+  }
+
+  componentDidMount() {
+    axios
+      .get('http://localhost:4000/api/todos/' + this.props.match.params.id)
+      .then((response) => {
+        this.setState({
+          todo_description: response.data.todo_description,
+          todo_responsible: response.data.todo_responsible,
+          todo_priority: response.data.todo_priority,
+          todo_completed: response.data.todo_completed,
+          todo_startdate: response.data.todo_startdate,
+          todo_completeddate: response.data.todo_completeddate,
+        });
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   onChangeTodoDescription = (e) => {
@@ -52,6 +71,23 @@ class EditTodo extends Component {
 
   onSubmit = (e) => {
     e.preventDefault();
+    const obj = {
+      todo_description: this.state.todo_description,
+      todo_responsible: this.state.todo_responsible,
+      todo_priority: this.state.todo_priority,
+      todo_completed: this.state.todo_completed,
+      todo_startdate: this.state.todo_startdate,
+      todo_completeddate: this.state.todo_completeddate,
+    };
+    console.log(obj);
+    axios
+      .post(
+        'http://localhost:4000/api/todos/update/' + this.props.match.params.id,
+        obj
+      )
+      .then((res) => console.log(res.data));
+
+    this.props.history.push('/');
   };
   render() {
     return (
