@@ -1,0 +1,15 @@
+{
+  "name": "pet-manager-todo2",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/Mekarosi/pet-manager-todo2.git",
+  "author": "Mekarosi <mekarosi_assa@yahoo.com>",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.11",
+    "nodemon": "^2.0.3"
+  }
+}
