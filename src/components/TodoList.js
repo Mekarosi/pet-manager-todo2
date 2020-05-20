@@ -42,13 +42,13 @@ class TodoList extends Component {
       .then((response) => {
         this.setState({ todos: response.data });
       })
-      .catch(function (error) {
+      .catch((error) => {
         console.log(error);
       });
   }
 
   todoList() {
-    return this.state.todos.map(function (currentTodo, i) {
+    return this.state.todos.map((currentTodo, i) => {
       return <Todo todo={currentTodo} key={i} />;
     });
   }

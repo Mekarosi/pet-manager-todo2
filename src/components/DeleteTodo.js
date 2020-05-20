@@ -15,7 +15,7 @@ class DeleteTodo extends Component {
 
   componentDidMount() {
     axios
-      .get('http://localhost:4000/api/todos/' + this.props.match.params.id)
+      .get('http://localhost:4040/api/todos/' + this.props.match.params.id)
       .then((response) => {
         this.setState({
           todo_description: response.data.todo_description,
@@ -65,7 +65,7 @@ class DeleteTodo extends Component {
     console.log(obj);
     axios
       .delete(
-        'http://localhost:4000/api/todos/delete/' + this.props.match.params.id,
+        'http://localhost:4040/api/todos/delete/' + this.props.match.params.id,
         obj
       )
       .then((res) => console.log(res.data));
