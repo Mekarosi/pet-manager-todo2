@@ -1,11 +1,14 @@
 const express = require('express');
 const app = express();
 const connectDB = require('./config/db');
+const cors = require('cors');
+
 const PORT = process.env.PORT || 4040;
-const path = require('path');
 
 // Connect Database
 connectDB();
+
+app.use(cors());
 
 // Init Middleware
 app.use(express.json({ extended: false }));
