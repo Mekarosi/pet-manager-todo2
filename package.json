@@ -6,6 +6,7 @@
   "author": "Mekarosi <mekarosi_assa@yahoo.com>",
   "license": "MIT",
   "scripts": {
+    "client-install": "yarn install --prefix client",
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "yarn start --prefix client",
