@@ -6,7 +6,7 @@ pseudocode.txt
 /config/default.json
 /coverage
 
-# /client/build
+/client/build
 
 .DS_Store
 /client/.env.local
