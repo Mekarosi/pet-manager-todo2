@@ -6,17 +6,17 @@
     "node": "10.15.3",
     "yarn": "1.22.0"
   },
-  "repository": "https://github.com/Mekarosi/pet-manager-todo2.git",
-  "author": "Mekarosi <mekarosi_assa@yahoo.com>",
-  "license": "MIT",
   "scripts": {
     "start": "node server.js",
     "server": "nodemon server.js",
     "client": "yarn start --prefix client",
-    "client-install": "yarn install --prefix client",
+    "clientinstall": "yarn install --prefix client",
     "dev": "concurrently \"yarn run server\" \"yarn run client\"",
     "heroku-postbuild": "YARN_CONFIG_PRODUCTION=false YARN install --prefix client && yarn run build --prefix client"
   },
+  "repository": "https://github.com/Mekarosi/pet-manager-todo2.git",
+  "author": "Mekarosi <mekarosi_assa@yahoo.com>",
+  "license": "MIT",
   "dependencies": {
     "body-parser": "^1.19.0",
     "config": "^3.3.1",
