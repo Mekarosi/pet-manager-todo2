@@ -2,9 +2,10 @@
   "name": "pet-manager-todo2",
   "version": "1.0.0",
   "main": "server.js",
-  "engine": {
-    "node": "10.15.3",
-    "npm": "6.4.1"
+  "engines": {
+    "node": "13.7.0",
+    "npm": "6.4.1",
+    "yarn": "1.22.0"
   },
   "scripts": {
     "start": "node server.js",
